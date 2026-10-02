@@ -34,6 +34,26 @@ PostgreSQL est exposé sur `localhost:5433` (le port `5432` était déjà utilis
 
 Au premier démarrage, 12 produits de démonstration sont insérés automatiquement.
 
+## Redémarrer après fermeture de VS Code
+
+Pour la configuration actuelle, PostgreSQL est installé localement sur la machine : Docker n’est pas nécessaire. Vérifiez que le service PostgreSQL est démarré, puis lancez les deux serveurs dans deux terminaux séparés, depuis la racine du projet.
+
+Terminal 1 – backend :
+
+```bash
+cd backend
+npm run start:dev
+```
+
+Terminal 2 – frontend :
+
+```bash
+cd frontend
+npm run dev
+```
+
+Ouvrez ensuite <http://localhost:5173/>. L’API est disponible sur <http://localhost:3000/api>. Ne recopiez pas `backend/.env.example` sur `backend/.env` à chaque démarrage : le fichier `.env` contient déjà la configuration locale de la base.
+
 ## API
 
 | Méthode | Route                                | Description                                                 |
