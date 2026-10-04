@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 const Home = lazy(() => import('./pages/Home'));
 const ProductPage = lazy(() => import('./pages/ProductPage'));
@@ -10,9 +11,9 @@ const Orders = lazy(() => import('./pages/Orders'));
 
 export default function App() {
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       <Navbar />
-      <main className="mx-auto max-w-6xl px-4 py-8">
+      <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-8">
         <Suspense fallback={<p className="py-20 text-center text-ink/60">Chargement…</p>}>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -24,6 +25,7 @@ export default function App() {
           </Routes>
         </Suspense>
       </main>
-    </>
+      <Footer />
+    </div>
   );
 }
